@@ -29,7 +29,6 @@ public class AccountsApiController implements AccountsApi {
 
     @Override
     public ResponseEntity<List<Account>> getAccounts(String customerId) {
-
         return ResponseEntity.status(HttpStatus.OK).
                 body(
                 delegate.getAccounts(customerId));
@@ -37,7 +36,6 @@ public class AccountsApiController implements AccountsApi {
 
     @Override
     public ResponseEntity<Account> getAccountsByAccountId(String customerId, String accountId) {
-
         return ResponseEntity.status(HttpStatus.OK)
                         .body(delegate.getAccountsByAccountId(customerId,accountId));
 
@@ -45,7 +43,6 @@ public class AccountsApiController implements AccountsApi {
 
     @Override
     public ResponseEntity<Balances> getBalances(String customerId, String accountId) {
-
         return ResponseEntity.status(HttpStatus.OK)
                 .body(delegate.getBalances(customerId, accountId));
     }

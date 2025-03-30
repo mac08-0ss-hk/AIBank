@@ -21,16 +21,6 @@ import jakarta.annotation.Generated;
 @Validated
 public interface AccountsApi {
 
-    /**
-     * GET /accounts : Get list of all accounts
-     * Get Accounts
-     *
-     * @param customerId  (required)
-     * @return Accounts successfully retrieved (status code 200)
-     *         or Bad Request (status code 400)
-     *         or Failed to process the request (status code 500)
-     *         or Failed to process the request (status code 200)
-     */
     @RequestMapping(
         method = RequestMethod.GET,
         value = "/accounts",
@@ -42,18 +32,6 @@ public interface AccountsApi {
         @NotNull  @RequestHeader(value = "customerId", required = true) String customerId
     );
 
-
-    /**
-     * GET /accounts/{accountId} : Get Account
-     * Get Account for the given AccountId
-     *
-     * @param customerId (required)
-     * @param accountId  (required)
-     * @return Account details retrieved successfully (status code 200)
-     * or Bad Request (status code 400)
-     * or Failed to process the request (status code 500)
-     * or Failed to process the request (status code 200)
-     */
     @RequestMapping(
         method = RequestMethod.GET,
         value = "/accounts/{accountId}",
@@ -65,18 +43,6 @@ public interface AccountsApi {
         @Size(min = 1, max = 40)  @PathVariable("accountId") String accountId
     );
 
-
-    /**
-     * GET /accounts/{accountId}/balances : Get Balances
-     * Get Balances for the given AccountId
-     *
-     * @param customerId (required)
-     * @param accountId  (required)
-     * @return Balance details retrieved successfully (status code 200)
-     * or Bad Request (status code 400)
-     * or Failed to process the request (status code 500)
-     * or Failed to process the request (status code 200)
-     */
     @RequestMapping(
         method = RequestMethod.GET,
         value = "/accounts/{accountId}/balances",
