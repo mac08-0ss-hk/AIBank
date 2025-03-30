@@ -7,17 +7,14 @@ package com.aibank.api.controller;
 
 import com.aibank.api.model.Account;
 import com.aibank.api.model.Balances;
-import com.aibank.api.model.GetAccounts400Response;
-import com.aibank.api.model.GetAccounts500Response;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import java.util.List;
-import java.util.Map;
+
 import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-03-30T16:19:24.480113+08:00[Asia/Hong_Kong]", comments = "Generator version: 7.12.0")
@@ -41,7 +38,7 @@ public interface AccountsApi {
     )
     @ResponseStatus(HttpStatus.OK)
     
-    List<Account> getAccounts(
+    ResponseEntity<List<Account>>getAccounts(
         @NotNull  @RequestHeader(value = "customerId", required = true) String customerId
     );
 
@@ -50,12 +47,12 @@ public interface AccountsApi {
      * GET /accounts/{accountId} : Get Account
      * Get Account for the given AccountId
      *
-     * @param customerId  (required)
+     * @param customerId (required)
      * @param accountId  (required)
      * @return Account details retrieved successfully (status code 200)
-     *         or Bad Request (status code 400)
-     *         or Failed to process the request (status code 500)
-     *         or Failed to process the request (status code 200)
+     * or Bad Request (status code 400)
+     * or Failed to process the request (status code 500)
+     * or Failed to process the request (status code 200)
      */
     @RequestMapping(
         method = RequestMethod.GET,
@@ -63,8 +60,7 @@ public interface AccountsApi {
         produces = { "application/json" }
     )
     @ResponseStatus(HttpStatus.OK)
-    
-    Account getAccountsByAccountId(
+    ResponseEntity<Account> getAccountsByAccountId(
         @NotNull  @RequestHeader(value = "customerId", required = true) String customerId,
         @Size(min = 1, max = 40)  @PathVariable("accountId") String accountId
     );
@@ -74,12 +70,12 @@ public interface AccountsApi {
      * GET /accounts/{accountId}/balances : Get Balances
      * Get Balances for the given AccountId
      *
-     * @param customerId  (required)
+     * @param customerId (required)
      * @param accountId  (required)
      * @return Balance details retrieved successfully (status code 200)
-     *         or Bad Request (status code 400)
-     *         or Failed to process the request (status code 500)
-     *         or Failed to process the request (status code 200)
+     * or Bad Request (status code 400)
+     * or Failed to process the request (status code 500)
+     * or Failed to process the request (status code 200)
      */
     @RequestMapping(
         method = RequestMethod.GET,
@@ -87,8 +83,7 @@ public interface AccountsApi {
         produces = { "application/json" }
     )
     @ResponseStatus(HttpStatus.OK)
-    
-    Balances getBalances(
+    ResponseEntity<Balances> getBalances(
         @NotNull  @RequestHeader(value = "customerId", required = true) String customerId,
         @Size(min = 1, max = 40)  @PathVariable("accountId") String accountId
     );
