@@ -1,0 +1,223 @@
+{
+	"info": {
+		"_postman_id": "44187a5c-79a4-4d89-b52e-c9aef330139d",
+		"name": "AIBank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5120916"
+	},
+	"item": [
+		{
+			"name": "Balances",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "customerId",
+						"value": "ID431123234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/accountsAIBank/v1/accounts/AIB4000123/balances",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accountsAIBank",
+						"v1",
+						"accounts",
+						"AIB4000123",
+						"balances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Balances Copy",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "customerId",
+						"value": "ID431123234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/accountsAIBank/v1/accounts/AIB4000123/balances",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accountsAIBank",
+						"v1",
+						"accounts",
+						"AIB4000123",
+						"balances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Account",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "customerId",
+						"value": "ID431123234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/accountsAIBank/v1/accounts/AIB4000123",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accountsAIBank",
+						"v1",
+						"accounts",
+						"AIB4000123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Accounts",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "customerId",
+						"value": "ID431123234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/accountsAIBank/v1/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accountsAIBank",
+						"v1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Accounts Copy",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "customerId",
+						"value": "ID431123234",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8060/trigger",
+					"host": [
+						"localhost"
+					],
+					"port": "8060",
+					"path": [
+						"trigger"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "server-rul",
+			"value": "localhost:8080",
+			"type": "default"
+		}
+	]
+}
