@@ -1,0 +1,17 @@
+.openapi-generator-ignore
+README.md
+pom.xml
+src/main/java/com/aibank/api/OpenApiGeneratorApplication.java
+src/main/java/com/aibank/api/RFC3339DateFormat.java
+src/main/java/com/aibank/api/config/HomeController.java
+src/main/java/com/aibank/api/controller/AccountsApi.java
+src/main/java/com/aibank/api/controller/AccountsApiController.java
+src/main/java/com/aibank/api/controller/AccountsApiDelegate.java
+src/main/java/com/aibank/api/controller/ApiUtil.java
+src/main/java/com/aibank/api/model/Account.java
+src/main/java/com/aibank/api/model/Balances.java
+src/main/java/com/aibank/api/model/GetAccounts400Response.java
+src/main/java/com/aibank/api/model/GetAccounts500Response.java
+src/main/resources/application.properties
+src/main/resources/openapi.yaml
+src/test/java/com/aibank/api/OpenApiGeneratorApplicationTests.java

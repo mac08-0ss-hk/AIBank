@@ -1,0 +1,258 @@
+openapi: 3.0.0
+info:
+  title: AccountsAIBank
+  version: 1.0.0
+servers:
+- description: Main API server
+  url: /accountsAIBank/v1
+paths:
+  /accounts:
+    get:
+      description: Get Accounts
+      operationId: getAccounts
+      parameters:
+      - explode: false
+        in: header
+        name: customerId
+        required: true
+        schema:
+          example: ID431123234
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Account'
+                maxItems: 10
+                minItems: 2
+                type: array
+          description: Accounts successfully retrieved
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAccounts_400_response'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAccounts_500_response'
+          description: Failed to process the request
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAccounts_500_response'
+          description: Failed to process the request
+      summary: Get list of all accounts
+      tags:
+      - Accounts
+      x-accepts:
+      - application/json
+      x-tags:
+      - tag: Accounts
+  /accounts/{accountId}:
+    get:
+      description: Get Account for the given AccountId
+      operationId: getAccountsByAccountId
+      parameters:
+      - explode: false
+        in: header
+        name: customerId
+        required: true
+        schema:
+          example: ID431123234
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          example: AIB4000123
+          maxLength: 40
+          minLength: 1
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+          description: Account details retrieved successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAccounts_400_response'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAccounts_500_response'
+          description: Failed to process the request
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAccounts_500_response'
+          description: Failed to process the request
+      summary: Get Account
+      tags:
+      - Accounts
+      x-accepts:
+      - application/json
+      x-tags:
+      - tag: Accounts
+  /accounts/{accountId}/balances:
+    get:
+      description: Get Balances for the given AccountId
+      operationId: getBalances
+      parameters:
+      - explode: false
+        in: header
+        name: customerId
+        required: true
+        schema:
+          example: ID431123234
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          example: AIB4000123
+          maxLength: 40
+          minLength: 1
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Balances'
+          description: Balance details retrieved successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAccounts_400_response'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAccounts_500_response'
+          description: Failed to process the request
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAccounts_500_response'
+          description: Failed to process the request
+      summary: Get Balances
+      tags:
+      - Accounts
+      x-accepts:
+      - application/json
+      x-tags:
+      - tag: Accounts
+components:
+  responses:
+    AccountResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Account'
+      description: Account details retrieved successfully
+    BalancesResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Balances'
+      description: Balance details retrieved successfully
+    InternalServerError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/getAccounts_500_response'
+      description: Failed to process the request
+    BadRequestError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/getAccounts_400_response'
+      description: Bad Request
+  schemas:
+    Account:
+      example:
+        accountId: AIB4000123
+        accountSubType: Savings
+        accountType: Personal
+        currency: USD
+      properties:
+        accountId:
+          example: AIB4000123
+          maxLength: 40
+          minLength: 1
+          type: string
+        currency:
+          example: USD
+          type: string
+        accountType:
+          example: Personal
+          type: string
+        accountSubType:
+          example: Savings
+          type: string
+      type: object
+    Balances:
+      example:
+        accountId: AIB4000123
+        balance: 999
+        currency: USD
+      properties:
+        accountId:
+          example: AIB4000123
+          maxLength: 40
+          minLength: 1
+          type: string
+        currency:
+          example: USD
+          type: string
+        balance:
+          example: 999
+          type: number
+      type: object
+    getAccounts_400_response:
+      example:
+        errorDescription: Bad Request
+        errorCode: "400"
+      properties:
+        errorCode:
+          example: "400"
+          type: string
+        errorDescription:
+          example: Bad Request
+          type: string
+      type: object
+    getAccounts_500_response:
+      example:
+        errorDescription: Internal Server Error
+        errorCode: "500"
+      properties:
+        errorCode:
+          example: "500"
+          type: string
+        errorDescription:
+          example: Internal Server Error
+          type: string
+      type: object
